@@ -50,15 +50,29 @@ This is based on a server deployed using [`jitsi-meet`'s Self-Hosting Guide for 
 - Relating to signalling
   - "Raise your hand" toggle
 
+- Related to identity
+  - Set your display name
+  - Set your gravater email
+
 - UI settings
   - "Toggle tile view"
   - "Select background"
-  - Manage call quality
-  - View full screen
+  - "Manage call quality"
+  - "View full screen"
+  - "Language" selector
+  - "Select background"
+  - "View keyboard shortcuts"
 
-- Relating to censorship
+- Relating to device selection
+  - "Camera" selector
+  - "Microphone" selector
+
+- Relating to moderation
   - "Mute everyone"
   - "Disable everyone's camera"
+  - "Everyone starts muted" (only for moderator)
+  - "Everyone starts hidden" (only for moderator)
+  - "Everyone follows me" (only for moderator)
 
 - Relating to leaving the meeting
   - "Hang up"
