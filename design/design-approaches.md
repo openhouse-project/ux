@@ -4,11 +4,60 @@ This document describes two alternative approaches to how to _begin_ creating an
 
 The approaches can be broadly defined as:
 
-- Multisig Based: using Gnosis Safe
 - Token Based: using ERC-721 framework (or ERC-20)
+- Multisig Based: using Gnosis Safe
 
 A brief comparison of the options is included below, however current preference is to proceed with the Token Based approach.
 
+## Token Based Approach
+
+### Summary
+
+This approach requires a user's wallet contains NFTs which infer priveleges such as being allowed to enter a chat room.
+
+### User Journey 1
+
+- User loads website.com
+
+- App shows "Connect Wallet" view
+
+- User connects wallet
+
+- App shows page with
+  - List of rooms a user has access to (which could be zero)
+    - (i.e. their NFTs, or perhaps those which are somehow "associated" with Openhouse... whatever that might mean)
+  - Create new room (mints a new NFT)
+
+- User selects Create new room
+
+- App displays interface to allow a user to:
+  - provide a name (optional)
+  - provide an image (optional)
+  - enter room (button)
+  
+- User enters information and clicks "enter room"
+
+- App mints an NFT for that user, and requests to create a room with `0x` address of the NFT contract.
+
+- Platform validates whether the user owns an NFT based on the `0x` token contract
+  - If so, grant access to the user
+  - If not, deny access to the user
+
+### User Journey 2
+
+- User loads website.com/0xd9546d7b514a33eff8785f97bf0b047326aa7d3d (for example)
+  - where 0xd9546d7b514a33eff8785f97bf0b047326aa7d3d is the contract address for an NFT (MoMint v2)
+
+- App shows "Connect Wallet" view
+
+- User connects wallet
+
+- App requests to create and join a room with the `0x` address of the NFT provided in the URL
+
+- Platform validates whether the user owns an NFT based on the `0x` token contract
+  - If so, grant access to the user
+  - If not, deny access to the user
+  
 ## Multisig Based Approach
 
 ### Summary
@@ -62,55 +111,6 @@ For the purposes of this proposed initial approach, it is assumed that users are
   - If so, lets them in
   - If not, tells them they're not allowed in.
 
-## Token Based Approach
-
-### Summary
-
-This approach requires a user's wallet contains NFTs which infer priveleges such as being allowed to enter a chat room.
-
-### User Journey 1
-
-- User loads website.com
-
-- App shows "Connect Wallet" view
-
-- User connects wallet
-
-- App shows page with
-  - List of rooms a user has access to (which could be zero)
-    - (i.e. their NFTs, or perhaps those which are somehow "associated" with Openhouse... whatever that might mean)
-  - Create new room (mints a new NFT)
-
-- User selects Create new room
-
-- App displays interface to allow a user to:
-  - provide a name (optional)
-  - provide an image (optional)
-  - enter room (button)
-  
-- User enters information and clicks "enter room"
-
-- App mints an NFT for that user, and requests to create a room with `0x` address of the NFT contract.
-
-- Platform validates whether the user owns an NFT based on the `0x` token contract
-  - If so, grant access to the user
-  - If not, deny access to the user
-
-### User Journey 2
-
-- User loads website.com/0xd9546d7b514a33eff8785f97bf0b047326aa7d3d (for example)
-  - where 0xd9546d7b514a33eff8785f97bf0b047326aa7d3d is the contract address for an NFT (MoMint v2)
-
-- App shows "Connect Wallet" view
-
-- User connects wallet
-
-- App requests to create and join a room with the `0x` address of the NFT provided in the URL
-
-- Platform validates whether the user owns an NFT based on the `0x` token contract
-  - If so, grant access to the user
-  - If not, deny access to the user
-  
 # Comparison (very rough notes)
 
 NFT approach appears to stand out as the preferable option.
@@ -119,7 +119,3 @@ NFT approach appears to stand out as the preferable option.
 - Easy to resolve NFTs (=chat rooms) from a user's wallet (resolving multisigs from wallets isn't so easy, bleugh!)
 - Nicely brandable, and imagery / naming can be used to brand the chat room.
 - In the mode right now
-
-Multisig wallet approach would appeal to a different audience who wish to collaborate on transacting via the multisig, knowing that their conversation is private and secure (assuming they 
-
-
