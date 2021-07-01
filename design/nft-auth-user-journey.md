@@ -3,7 +3,7 @@
 This document describes a minimum viable integration between:
 
 a) `jitsi-meet`'s base functions of "granting a user access to a room" and "booting a user from a room"
-b) Openhouse's `ParticipantAccessToken.sol` contract based on ERC-721.
+b) Openhouse's [`ParticipantAccessToken.sol`](https://github.com/openhouse-project/contracts/blob/main/ParticipantAccessToken.sol) contract based on ERC-721.
 
 This is to enable users to gain access to a `jitsi-meet` chat room by proving they own the appropriate access token for that room.
 
@@ -20,7 +20,7 @@ This will be known as the "Moderator Multisig", and is representated onchain by 
 ### Main Success Scenario 1
 
 1. User `0xDeF...987` loads domain.com/0xAbC...123
-- `0xAbC...123` is contract address of an already-deployed `ParticipantAccessToken.sol` contract
+- `0xAbC...123` is contract address of an already-deployed [`ParticipantAccessToken.sol`](https://github.com/openhouse-project/contracts/blob/main/ParticipantAccessToken.sol) contract
 
 2. User connects wallet, and signs whatever is required to validate that the user owns `0xdef...987`
 
@@ -38,7 +38,7 @@ This will be known as the "Moderator Multisig", and is representated onchain by 
 
 2. User starts new meeting, provides a `meetingName` or uses an auto-generated name
 This triggers the following transactions:
-a) deploy new `ParticipantAccessToken.sol` containing `meetingName`
+a) deploy new [`ParticipantAccessToken.sol`](https://github.com/openhouse-project/contracts/blob/main/ParticipantAccessToken.sol) containing `meetingName`
   - sets MINTER_ROLE to themself
   - sets BURNER_ROLE to the "Moderator Multisig".
   - returns address of new contract `0xAcE...456`
